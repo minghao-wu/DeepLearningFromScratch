@@ -30,7 +30,6 @@ class AlexNet(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.dropout(x)
         x = F.relu(self.fc2(x))
-        x = self.fc3(x)
         x = F.softmax(self.fc3(x))
         return(x)
 
