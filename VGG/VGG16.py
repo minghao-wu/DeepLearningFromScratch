@@ -58,7 +58,8 @@ class VGG16(nn.Module):
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
         return(x)
-    
+    # This function is the key to have a competitive performance.
+    # Borrowed from https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py
     def _initialize_weights(self):
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
