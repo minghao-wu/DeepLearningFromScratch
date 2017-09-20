@@ -58,4 +58,4 @@ class VGG16(nn.Module):
         return(x)
 
 vgg16 = VGG16(1000)
-print(vgg16ß)
+print(vgg16)
