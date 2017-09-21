@@ -56,6 +56,7 @@ class GoogLeNet(nn.Module):
         self.pool3 = nn.AvgPool2d(kernel_size=7, stride=1)
         self.drop = nn.Dropout(p=0.4)
         self.classifier = nn.Linear(in_features=1024, out_features=num_classes)
+        self._initialize_weights()
 
     def forward(self, x):
         x = self.head(x)
