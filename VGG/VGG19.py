@@ -35,6 +35,7 @@ class VGG19(nn.Module):
         self.fc1 = nn.Linear(512 * 7 * 7, 4096)
         self.fc2 = nn.Linear(4096, 4096)
         self.fc3 = nn.Linear(4096, num_classes)
+        self._initialize_weights()
 
     def forward(self, x):
         x = F.relu(self.conv1(x))
