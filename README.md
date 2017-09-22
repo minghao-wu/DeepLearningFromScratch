@@ -4,7 +4,7 @@ I aim to reproduce some selected deep learning models from scratch as a kind of 
 
 For obvious reason, I'm unable to train the model on ImageNet from scratch.
 
-Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html).
+Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images is rescaled to 256 * 256 and randomly cropped to a 227 * 227 patch.
 
 If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting, I consider it is a valid replicate.
 
