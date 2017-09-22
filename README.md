@@ -6,7 +6,7 @@ For obvious reason, I'm unable to train the model on ImageNet from scratch.
 
 Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html).
 
-If my model achieves similar performance compared with the corresponding model given in the model zoo without pre-trained weight under the same setting, I consider it is a valid replicate.
+If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting, I consider it is a valid replicate.
 
 ## Models
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
@@ -18,4 +18,4 @@ My models are compared with models in this section.
 * [AlexNet](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.alexnet)
 * [VGG16](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg16)
 * [VGG19](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg19)
-* [GoogLeNet](https://github.com/kuangliu/pytorch-cifar/blob/master/models/googlenet.py): This implementation is not consistent with [the paper](https://arxiv.org/abs/1409.4842) and I choose to stick with the paper's setting.
+* [GoogLeNet](https://github.com/kuangliu/pytorch-cifar/blob/master/models/googlenet.py)
