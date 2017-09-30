@@ -18,7 +18,7 @@ My models are compared with models in this section.
 * [AlexNet](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.alexnet)
 * [VGG16](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg16)
 * [VGG19](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg19)
-* [GoogLeNet](https://github.com/kuangliu/pytorch-cifar/blob/master/models/googlenet.py)
+* [GoogLeNet](https://github.com/apache/incubator-mxnet/blob/master/example/image-classification/symbols/googlenet.py)
 
 ## Lesson Learned
 * Weight Initialization is much more important than you expected.
