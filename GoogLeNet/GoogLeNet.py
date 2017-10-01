@@ -32,18 +32,18 @@ class Inception(nn.Module):
 class AuxClassifier(nn.Module):
     def __init__(self, num_classes, in_channels):
         super(AuxClassifier, self).__init__()
-        self.pool1 = nn.AvgPool2d(kernel_size=5, stride=1)
+        self.pool1 = nn.AvgPool2d(kernel_size=5, stride=3)
         self.conv1 = nn.Sequential(
             nn.Conv2d(in_channels=in_channels, out_channels=128, kernel_size=1),
             nn.ReLU(inplace=True)
         )
         
         self.fc1 = nn.Sequential(
-            nn.Linear(in_features=9 * 9 * 128, out_features=1024),
+            nn.Linear(in_features=4 * 4 * 128, out_features=1024),
             nn.ReLU(inplace=True)
         )
-        self.drop = nn.Dropout(p=0.4)
-        self.fc2 = nn.Linear(in_features=9 * 9 * 128, out_features=1024)
+        self.drop = nn.Dropout(p=0.3)
+        self.fc2 = nn.Linear(in_features=1024, out_features=num_classes)
     def forward(self, x):
         x = self.pool1(x)
         x = self.conv1(x)
@@ -56,15 +56,16 @@ class AuxClassifier(nn.Module):
 class GoogLeNet(nn.Module):
     def __init__(self, num_classes, aux_classifier=True):
         super(GoogLeNet, self).__init__()
+        self.aux_classifier = aux_classifier
         self.head = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, stride=2, padding=1),
+            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, stride=2, padding=3),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=1),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=1),
             nn.ReLU(inplace=True),
             nn.Conv2d(in_channels=64, out_channels=192, kernel_size=3, stride=1, padding=1),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+            nn.MaxPool2d(kernel_size=3, stride=2)
         )
         
         self.block3a = Inception(in_channels=192, k_1x1=64, k_3x3red=96, k_3x3=128, k_5x5red=16, k_5x5=32, pool_proj=32)
