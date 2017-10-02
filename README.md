@@ -10,8 +10,9 @@ If my model achieves comparable performance with the corresponding model given i
 
 ## Models
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
-* [VGG16 & VGG19](https://arxiv.org/abs/1409.1556)
+* [VGG](https://arxiv.org/abs/1409.1556)
 * [GoogLeNet](https://arxiv.org/abs/1409.4842)
+* [ResNet](https://arxiv.org/abs/1512.03385)
 
 ## Model Zoo
 My models are compared with models in this section.
@@ -19,6 +20,7 @@ My models are compared with models in this section.
 * [VGG16](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg16)
 * [VGG19](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg19)
 * [GoogLeNet](https://github.com/apache/incubator-mxnet/blob/master/example/image-classification/symbols/googlenet.py)
+* [ResNet34](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet34)
 
 ## Lesson Learned
 * Weight Initialization is much more important than you expected.
