@@ -6,7 +6,7 @@ For obvious reason, I'm unable to train the model on ImageNet from scratch.
 
 Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
 
-If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting, I consider it is a valid replicate.
+If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first epoch, I consider it is a valid reproduction.
 
 ## Models
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
@@ -21,6 +21,5 @@ My models are compared with models in this section.
 * [VGG19](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.vgg19)
 * [GoogLeNet](https://github.com/apache/incubator-mxnet/blob/master/example/image-classification/symbols/googlenet.py)
 * [ResNet34](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet34)
+* [ResNet50](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet50)
 
-## Lesson Learned
-* Weight Initialization is much more important than you expected.
