@@ -13,6 +13,7 @@ If my model achieves comparable performance with the corresponding model given i
 * [VGG](https://arxiv.org/abs/1409.1556)
 * [GoogLeNet](https://arxiv.org/abs/1409.4842)
 * [ResNet](https://arxiv.org/abs/1512.03385)
+* [ResNeXt](https://arxiv.org/abs/1611.05431)
 
 ## Model Zoo
 My models are compared with models in this section.
