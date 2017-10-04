@@ -23,4 +23,5 @@ My models are compared with models in this section.
 * [GoogLeNet](https://github.com/apache/incubator-mxnet/blob/master/example/image-classification/symbols/googlenet.py)
 * [ResNet34](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet34)
 * [ResNet50](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet50)
+* [ResNeXt50-32x4d](https://github.com/prlz77/ResNeXt.pytorch)
 
