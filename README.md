@@ -14,6 +14,7 @@ If my model achieves comparable performance with the corresponding model given i
 * [GoogLeNet](https://arxiv.org/abs/1409.4842)
 * [ResNet](https://arxiv.org/abs/1512.03385)
 * [ResNeXt](https://arxiv.org/abs/1611.05431)
+* [SqueezeNet](https://arxiv.org/abs/1602.07360)
 
 ## Model Zoo
 My models are compared with models in this section.
@@ -24,4 +25,5 @@ My models are compared with models in this section.
 * [ResNet34](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet34)
 * [ResNet50](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.resnet50)
 * [ResNeXt50-32x4d](https://github.com/prlz77/ResNeXt.pytorch)
+* [SqueezeNet 1.0](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.squeezenet1_0)
 
