@@ -36,9 +36,9 @@ class SqueezeNet(nn.Module):
         self.fire8 = Fire(in_channels=384, squeeze_channels=64, expand1x1_channels=256, expand3x3_channels=256)
         self.pool8 = nn.MaxPool2d(kernel_size=3, stride=2)
         self.fire9 = Fire(in_channels=512, squeeze_channels=64, expand1x1_channels=256, expand3x3_channels=256)
-        self.conv10 = nn.Conv2d(in_channels=512, out_channels=1000, kernel_size=1, stride=1)
+        self.conv10 = nn.Conv2d(in_channels=512, out_channels=num_classes, kernel_size=1, stride=1)
+        self.relu = nn.ReLU(inplace=True)
         self.avgpool = nn.AvgPool2d(kernel_size=13, stride=1)
-        self.classifier = nn.Linear(in_features=1000, out_features=num_classes)
         self._initialize_weights()
 
     def forward(self, x):
@@ -54,9 +54,9 @@ class SqueezeNet(nn.Module):
         x = self.pool8(x)
         x = self.fire9(x)
         x = self.conv10(x)
+        x = self.relu(x)
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
-        x = self.classifier(x)
         return(x)
 
     def _initialize_weights(self):
