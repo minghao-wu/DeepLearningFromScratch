@@ -4,7 +4,7 @@ This repository stores a series of reproductions of deep learning milestones in 
 
 For obvious reason, I'm unable to train the model on ImageNet from scratch. Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
 
-If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first epoch, I consider it is a valid reproduction.
+If my model achieves comparable performance in both accuracy and speed with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first epoch, I consider it is a valid reproduction.
 
 ## Models
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
