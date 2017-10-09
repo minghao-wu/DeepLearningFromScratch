@@ -1,6 +1,6 @@
 # Deep Learning From Scratch
 ## Introduction
-I aim to reproduce some selected deep learning models from scratch as a kind of practice.
+This repository stores a series of reproductions of deep learning milestones in Computer Vision.
 
 For obvious reason, I'm unable to train the model on ImageNet from scratch.
 
@@ -16,6 +16,7 @@ If my model achieves comparable performance with the corresponding model given i
 * [ResNeXt](https://arxiv.org/abs/1611.05431)
 * [SqueezeNet](https://arxiv.org/abs/1602.07360)
 * [MobileNet](https://arxiv.org/abs/1704.04861)
+* [DenseNet](https://arxiv.org/abs/1608.06993)
 
 ## Model Zoo
 My models are compared with models in this section.
@@ -28,4 +29,5 @@ My models are compared with models in this section.
 * [ResNeXt50-32x4d](https://github.com/prlz77/ResNeXt.pytorch)
 * [SqueezeNet 1.0](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.squeezenet1_0)
 * [MobileNet](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py)
+* [DenseNet121](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.densenet121)
 
