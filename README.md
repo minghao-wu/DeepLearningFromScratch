@@ -2,9 +2,7 @@
 ## Introduction
 This repository stores a series of reproductions of deep learning milestones in Computer Vision.
 
-For obvious reason, I'm unable to train the model on ImageNet from scratch.
-
-Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
+For obvious reason, I'm unable to train the model on ImageNet from scratch. Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
 
 If my model achieves comparable performance with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first epoch, I consider it is a valid reproduction.
 
