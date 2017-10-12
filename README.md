@@ -2,11 +2,11 @@
 ## Introduction
 This repository stores a series of reproductions of deep learning milestones in Computer Vision.
 
-For obvious reason, I'm unable to train the model on ImageNet from scratch. Therefore, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
+For obvious reason, I'm unable to train the model on ImageNet from scratch. Therefore, for the image classification task, all the models are trained on [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), whose images are rescaled to be as large as those described in the original papers.
 
 If my model achieves comparable performance in both accuracy and speed with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first epoch, I consider it is a valid reproduction.
 
-## Models
+## Image Classification
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
 * [VGG](https://arxiv.org/abs/1409.1556)
 * [GoogLeNet](https://arxiv.org/abs/1409.4842)
@@ -15,6 +15,9 @@ If my model achieves comparable performance in both accuracy and speed with the 
 * [SqueezeNet](https://arxiv.org/abs/1602.07360)
 * [MobileNet](https://arxiv.org/abs/1704.04861)
 * [DenseNet](https://arxiv.org/abs/1608.06993)
+* [ShuffleNet](https://arxiv.org/abs/1707.01083)
+
+## Object Detection
 
 ## Model Zoo
 My models are compared with models in this section.
@@ -28,4 +31,5 @@ My models are compared with models in this section.
 * [SqueezeNet 1.0](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.squeezenet1_0)
 * [MobileNet](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py)
 * [DenseNet121](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.densenet121)
+* [ShuffleNet](https://github.com/jaxony/ShuffleNet/blob/master/model.py)
 
