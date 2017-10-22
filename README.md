@@ -16,9 +16,6 @@ If my model achieves comparable performance in both accuracy and speed with the 
 * [MobileNet](https://arxiv.org/abs/1704.04861)
 * [DenseNet](https://arxiv.org/abs/1608.06993)
 * [ShuffleNet](https://arxiv.org/abs/1707.01083)
-
-## Object Detection
-
 ## Model Zoo
 My models are compared with models in this section.
 * [AlexNet](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.alexnet)
