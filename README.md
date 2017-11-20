@@ -6,6 +6,10 @@ For obvious reason, I'm unable to train the model on ImageNet from scratch. Ther
 
 If my model achieves comparable performance in both accuracy and speed with the corresponding model given in the model zoo without pre-trained weight under the same setting in the first three epochs, I consider it is a valid reproduction.
 
+**Stars are welcomed!**
+
+I guess no one will read my code line by line. LOL.
+
 ## Image Classification
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
 * [VGG](https://arxiv.org/abs/1409.1556)
