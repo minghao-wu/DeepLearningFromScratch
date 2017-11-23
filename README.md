@@ -20,7 +20,7 @@ I guess no one will read my code line by line. LOL.
 * [MobileNet](https://arxiv.org/abs/1704.04861)
 * [DenseNet](https://arxiv.org/abs/1608.06993)
 * [ShuffleNet](https://arxiv.org/abs/1707.01083)
-* [ResNet_with_Stochastic_Depth](https://arxiv.org/abs/1603.09382)
+* [ResNet with Stochastic Depth](https://arxiv.org/abs/1603.09382)
 ## Model Zoo
 My models are compared with models in this section.
 * [AlexNet](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.alexnet)
@@ -34,5 +34,5 @@ My models are compared with models in this section.
 * [MobileNet](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py)
 * [DenseNet121](http://pytorch.org/docs/master/torchvision/models.html#torchvision.models.densenet121)
 * [ShuffleNet](https://github.com/jaxony/ShuffleNet/blob/master/model.py)
-* [ResNet_with_Stochastic_Depth](https://github.com/yueatsprograms/Stochastic_Depth)
+* [ResNet with Stochastic Depth](https://github.com/yueatsprograms/Stochastic_Depth)
 
