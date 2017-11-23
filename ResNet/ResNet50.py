@@ -80,7 +80,7 @@ class ResNet50(nn.Module):
         layers = []
         layers.append(block(in_channels=in_channels, out_channels=out_channels, stride=stride))
         stride = 1
-        for i in range(blocks):
+        for i in range(1, blocks):
             layers.append(block(in_channels=(out_channels * 4), out_channels=out_channels, stride=stride))
 
         return(nn.Sequential(*layers))
