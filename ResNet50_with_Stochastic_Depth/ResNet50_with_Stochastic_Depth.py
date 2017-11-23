@@ -36,6 +36,7 @@ class BottleNeck(nn.Module):
                 x = x + identity
                 x = self.relu(x)
                 return(x)
+            else:
                 x = self.downsample(x)
                 x = self.relu(x)
                 return(x)
