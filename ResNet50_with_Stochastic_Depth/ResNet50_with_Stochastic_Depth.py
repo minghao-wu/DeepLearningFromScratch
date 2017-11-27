@@ -87,11 +87,7 @@ class ResNet50_Stochastic_Depth(nn.Module):
 
     def forward(self, x):
         actives = torch.bernoulli(self.probabilities)
-        print("The sum of actives: ", torch.sum(actives))
-        self.head = nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, padding=3, stride=2)
-        self.bn = nn.BatchNorm2d(num_features=64)
-        self.relu = nn.ReLU(inplace=True)
-        self.pool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        print("The sum of actives blocks: ", int(torch.sum(actives)))
         self.group1 = self._make_group(BottleNeck, in_channels=64, out_channels=64, blocks=3, stride=1, probabilities=self.probabilities[:3], actives=actives[:3])
         self.group2 = self._make_group(BottleNeck, in_channels=256, out_channels=128, blocks=4, stride=2, probabilities=self.probabilities[3:7], actives=actives[3:7])
         self.group3 = self._make_group(BottleNeck, in_channels=512, out_channels=256, blocks=6, stride=2, probabilities=self.probabilities[7:13], actives=actives[7:13])
