@@ -92,8 +92,6 @@ class ResNet50_Stochastic_Depth(nn.Module):
         self.group2 = self._make_group(BottleNeck, in_channels=256, out_channels=128, blocks=4, stride=2, probabilities=self.probabilities[3:7], actives=actives[3:7])
         self.group3 = self._make_group(BottleNeck, in_channels=512, out_channels=256, blocks=6, stride=2, probabilities=self.probabilities[7:13], actives=actives[7:13])
         self.group4 = self._make_group(BottleNeck, in_channels=1024, out_channels=512, blocks=3, stride=2, probabilities=self.probabilities[13:], actives=actives[13:])
-        self.avgpool = nn.AvgPool2d(kernel_size=7, stride=1)
-        self.classifier = nn.Linear(in_features=2048, out_features=self.num_classes)
         
         x = self.head(x)
         x = self.bn(x)
