@@ -28,7 +28,7 @@ class BottleNeck(nn.Module):
     def forward(self, x):      
         if self.training:
             if self.active == 1:
-                print("active")
+#                 print("active")
                 identity = x
                 identity = self.downsample(identity)
                 x = self.conv1(x)
@@ -38,7 +38,7 @@ class BottleNeck(nn.Module):
                 x = self.relu(x)
                 return(x)
             else:
-                print("inactive")
+#                 print("inactive")
                 x = self.downsample(x)
                 x = self.relu(x)
                 return(x)
@@ -74,6 +74,7 @@ class ResNet50_Stochastic_Depth(nn.Module):
         self.num_classes = num_classes
         self.probabilities = torch.linspace(start=1, end=pL, steps=16)
         self.actives = torch.bernoulli(self.probabilities)
+        
         self.head = nn.Conv2d(in_channels=3, out_channels=64, kernel_size=7, padding=3, stride=2)
         self.bn = nn.BatchNorm2d(num_features=64)
         self.relu = nn.ReLU(inplace=True)
@@ -86,13 +87,9 @@ class ResNet50_Stochastic_Depth(nn.Module):
         self.classifier = nn.Linear(in_features=2048, out_features=num_classes)
 
     def forward(self, x):
-        actives = torch.bernoulli(self.probabilities)
-        print("The sum of actives blocks: ", int(torch.sum(actives)))
-        self.group1 = self._make_group(BottleNeck, in_channels=64, out_channels=64, blocks=3, stride=1, probabilities=self.probabilities[:3], actives=actives[:3])
-        self.group2 = self._make_group(BottleNeck, in_channels=256, out_channels=128, blocks=4, stride=2, probabilities=self.probabilities[3:7], actives=actives[3:7])
-        self.group3 = self._make_group(BottleNeck, in_channels=512, out_channels=256, blocks=6, stride=2, probabilities=self.probabilities[7:13], actives=actives[7:13])
-        self.group4 = self._make_group(BottleNeck, in_channels=1024, out_channels=512, blocks=3, stride=2, probabilities=self.probabilities[13:], actives=actives[13:])
-        
+
+        self._drop_layers(self.probabilities)
+#         print("The sum of actives blocks: ", int(torch.sum(self.actives)))
         x = self.head(x)
         x = self.bn(x)
         x = self.relu(x)
@@ -104,8 +101,12 @@ class ResNet50_Stochastic_Depth(nn.Module):
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
+        
         return(x)
     
+    
+    def _drop_layers(self, probabilities):
+        self.actives = torch.bernoulli(self.probabilities)
     
     def _make_group(self, block, in_channels, out_channels, blocks, stride, probabilities, actives):
         layers = []
