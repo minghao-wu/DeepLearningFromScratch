@@ -23,10 +23,10 @@ class BottleNeck(nn.Module):
         )
         self._initialize_weights()
 
-    def forward(self, x, active):      
+    def forward(self, x, active, prob):      
         if self.training:
             if active == 1:
-                print("active")
+#                 print("active")
                 identity = x
                 identity = self.downsample(identity)
                 x = self.conv1(x)
@@ -36,7 +36,7 @@ class BottleNeck(nn.Module):
                 x = self.relu(x)
                 return(x)
             else:
-                print("inactive")
+#                 print("inactive")
                 x = self.downsample(x)
                 x = self.relu(x)
                 return(x)
@@ -46,7 +46,7 @@ class BottleNeck(nn.Module):
             x = self.conv1(x)
             x = self.conv2(x)
             x = self.conv3(x)
-            x = self.prob * x + identity
+            x = prob * x + identity
             x = self.relu(x)
             return(x)
 
@@ -71,10 +71,10 @@ class Group(nn.Module):
         self.num_blocks = num_blocks
         self.head_layer = BottleNeck(in_channels=in_channels, out_channels=out_channels, stride=stride)
         self.tail_layer = BottleNeck(in_channels=(out_channels * 4), out_channels=out_channels, stride=1)
-    def forward(self, x, active):
-        x = self.head_layer(x, active[0])
+    def forward(self, x, active, probs):
+        x = self.head_layer(x, active[0], probs[0])
         for i in range(1, self.num_blocks):
-            x = self.tail_layer(x, active[i])
+            x = self.tail_layer(x, active[i], probs[i])
         return(x)
 
 class ResNet50_Stochastic_Depth(nn.Module):
@@ -99,16 +99,17 @@ class ResNet50_Stochastic_Depth(nn.Module):
     def forward(self, x):
 
         self.actives = torch.bernoulli(self.probabilities)
-        print("The sum of actives blocks: ", int(torch.sum(self.actives)))
+#         print("The sum of actives blocks: ", int(torch.sum(self.actives)))
         x = self.head(x)
         x = self.bn(x)
         x = self.relu(x)
         x = self.pool(x)
-        x = self.group1(x, self.actives[:3])
-        x = self.group2(x, self.actives[3:7])
-        x = self.group3(x, self.actives[7:13])
-        x = self.group4(x, self.actives[13:])
+        x = self.group1(x, self.actives[:3], self.probabilities[:3])
+        x = self.group2(x, self.actives[3:7], self.probabilities[3:7])
+        x = self.group3(x, self.actives[7:13], self.probabilities[7:13])
+        x = self.group4(x, self.actives[13:], self.probabilities[13:])
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
+        
         return(x)
