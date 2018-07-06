@@ -8,7 +8,7 @@ If my model achieves comparable performance in both accuracy and speed with the 
 
 **Stars are welcomed!**
 
-I guess no one will read my code line by line. LOL.
+I guess no one would read my code line by line. LOL.
 
 ## Image Classification
 * [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks)
