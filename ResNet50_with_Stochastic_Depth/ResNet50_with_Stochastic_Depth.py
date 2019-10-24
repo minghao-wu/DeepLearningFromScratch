@@ -97,8 +97,6 @@ class ResNet50_Stochastic_Depth(nn.Module):
         self.classifier = nn.Linear(in_features=2048, out_features=num_classes)
 
     def forward(self, x):
-
-        self.actives = torch.bernoulli(self.probabilities)
 #         print("The sum of actives blocks: ", int(torch.sum(self.actives)))
         x = self.head(x)
         x = self.bn(x)
